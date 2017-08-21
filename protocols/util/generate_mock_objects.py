@@ -688,6 +688,29 @@ def get_valid_rd_exit_questionnaire_4_0_0():
     return validate_object(object_to_validate=new_rd_eq, object_type=object_type)
 
 
+def get_valid_rd_exit_questionnaire_4_2_0_SNAPSHOT():
+    object_type = reports_4_2_0_SNAPSHOT.RareDiseaseExitQuestionnaire
+    new_rd_eq = MockModelObject(object_type=object_type).get_valid_empty_object()
+
+    classification = reports_4_2_0_SNAPSHOT.ACMGClassification.not_assessed
+    new_rd_eq.variantGroupLevelQuestions[0].variantLevelQuestions[0].acmgClassification = classification
+    question = reports_4_2_0_SNAPSHOT.ReportingQuestion.na
+    new_rd_eq.variantGroupLevelQuestions[0].variantLevelQuestions[0].reportingQuestion = question
+    outcome = reports_4_2_0_SNAPSHOT.ConfirmationOutcome.na
+    new_rd_eq.variantGroupLevelQuestions[0].variantLevelQuestions[0].confirmationOutcome = outcome
+    decision = reports_4_2_0_SNAPSHOT.ConfirmationDecision.na
+    new_rd_eq.variantGroupLevelQuestions[0].variantLevelQuestions[0].confirmationDecision = decision
+    new_rd_eq.variantGroupLevelQuestions[0].phenotypesSolved = reports_4_2_0_SNAPSHOT.PhenotypesSolved.unknown
+    new_rd_eq.variantGroupLevelQuestions[0].clinicalUtility = [reports_4_2_0_SNAPSHOT.ClinicalUtility.unknown]
+    new_rd_eq.variantGroupLevelQuestions[0].actionability = reports_4_2_0_SNAPSHOT.Actionability.na
+    new_rd_eq.variantGroupLevelQuestions[0].variantGroup = 1
+
+    new_rd_eq.familyLevelQuestions.segregationQuestion = reports_4_2_0_SNAPSHOT.SegregationQuestion.no
+    new_rd_eq.familyLevelQuestions.caseSolvedFamily = reports_4_2_0_SNAPSHOT.CaseSolvedFamily.unknown
+
+    return validate_object(object_to_validate=new_rd_eq, object_type=object_type)
+
+
 def get_valid_reported_somatic_structural_variant_3_0_0():
     object_type = reports_3_0_0.ReportedSomaticStructuralVariants
     new_variant = MockModelObject(object_type=object_type).get_valid_empty_object()
