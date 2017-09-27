@@ -940,7 +940,7 @@ def get_valid_clinical_report_cancer_4_2_0_SNAPSHOT():
 def get_valid_called_genotype_2_1_0():
     object_type = reports_2_1_0.CalledGenotype
     new_cg = MockModelObject(object_type=object_type).get_valid_empty_object()
-    new_cg.genotype = ''
+    new_cg.genotype = 'mock genotype'
 
     return validate_object(object_to_validate=new_cg, object_type=object_type)
 
